@@ -1,0 +1,23 @@
+# Variables de entorno
+.env
+*.env
+
+# .NET
+bin/
+obj/
+
+#Visual Studio
+.vs/
+*.user
+*.suo
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
+

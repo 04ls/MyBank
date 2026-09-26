@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="MyBank.API/MyBank.API.csproj" />
+  <Project Path="MyBank.Application/MyBank.Application.csproj" />
+  <Project Path="MyBank.Domain/MyBank.Domain.csproj" />
+  <Project Path="MyBank.Infrastructure/MyBank.Infrastructure.csproj" />
+</Solution>
