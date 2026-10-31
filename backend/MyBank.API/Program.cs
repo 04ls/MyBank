@@ -22,6 +22,7 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
+app.MapGet("/", () => "MyBank API funcionando correctamente");
 app.MapControllers();
 
 app.Run();

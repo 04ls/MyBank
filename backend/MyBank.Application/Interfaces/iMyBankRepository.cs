@@ -2,7 +2,11 @@ using MyBank.Domain.Entities;
 
 namespace MyBank.Application.Interfaces;
 
-public interface iMyBankRepository {
-    Task<IEnumerable<MyBankGlobal>> GetAllAsync();
-    Task<MyBankGlobal> AddAsync(MyBankGlobal mybank); //Agregamos el contrato para el POST
+public interface IMyBankRepository
+{
+    Task<IEnumerable<Transaccion>> GetAllAsync();
+
+    Task<Transaccion?> GetByIdAsync(int id);
+
+    Task AddAsync(Transaccion transaccion);
 }
