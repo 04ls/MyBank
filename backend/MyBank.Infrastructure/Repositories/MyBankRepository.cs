@@ -5,25 +5,28 @@ using MyBank.Infrastructure.Data;
 
 namespace MyBank.Infrastructure.Repositories;
 
-//Implementamos la interfaz (la finca obedece a la receta)
-public class MyBankRepository: iMyBankRepository {
+public class MyBankRepository : IMyBankRepository
+{
     private readonly MyBankDbContext _context;
 
-    //El constructor recibe el contexto de EF Core
-    public MyBankRepository(MyBankDbContext context) {
+    public MyBankRepository(MyBankDbContext context)
+    {
         _context = context;
     }
 
-    public async Task<IEnumerable<MyBankGlobal>> GetAllAsync() {
-        return await _context.MyBanksGlobales.ToListAsync(); //Consulta real a BD (Magia SQL)
+    public async Task<IEnumerable<Transaccion>> GetAllAsync()
+    {
+        return await _context.Transacciones.ToListAsync();
     }
 
-    public async Task<MyBankGlobal> AddAsync(MyBankGlobal mybank) {
-        await _context.MyBanksGlobales.AddAsync(mybank);
+    public async Task<Transaccion?> GetByIdAsync(int id)
+    {
+        return await _context.Transacciones.FindAsync(id);
+    }
 
-        //SaveChangesAsync envuelve la operación en una transacción SQL (Commit)
+    public async Task AddAsync(Transaccion transaccion)
+    {
+        await _context.Transacciones.AddAsync(transaccion);
         await _context.SaveChangesAsync();
-
-        return mybank;
     }
 }

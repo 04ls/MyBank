@@ -3,8 +3,12 @@ using MyBank.Domain.Entities;
 
 namespace MyBank.Infrastructure.Data;
 
-public class MyBankDbContext: DbContext {
-    public MyBankDbContext(DbContextOptions<MyBankDbContext> options) : base(options) { }
+public class MyBankDbContext : DbContext
+{
+    public MyBankDbContext(DbContextOptions<MyBankDbContext> options)
+        : base(options)
+    {
+    }
 
-    public DbSet<MyBankGlobal> MyBanksGlobales {get; set;}
+    public DbSet<Transaccion> Transacciones { get; set; }
 }
